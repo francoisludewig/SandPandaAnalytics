@@ -14,6 +14,8 @@ set(SOURCES_FILES
         Sources/Repository/containerrepository.cpp
         Sources/Repository/sphererepository.cpp
 
+        Sources/Configuration/Option.cpp
+
         Sources/main.cpp
 )
 
@@ -28,6 +30,8 @@ set(INCLUDES_FILES
         
         Includes/Repository/containerrepository.h
         Includes/Repository/sphererepository.h
+
+        Includes/Configuration/Option.h
 )
 
 set(SandPandaAnalytics_FILES
