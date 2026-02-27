@@ -1,5 +1,4 @@
-#ifndef CONTAINERREPOSITORY_H
-#define CONTAINERREPOSITORY_H
+ #pragma once
 
 #include <string>
 #include<vector>
@@ -12,14 +11,15 @@ class ContainerRepository
 {
 public:
     ContainerRepository();
-    int getN() {return N;}
+    [[nodiscard]] int getN() const {return N;}
     void load(std::string directory);
+    [[nodiscard]] bool hasCones() const { return !cones.empty();}
+    [[nodiscard]] Cone getCone() const {return cones[0];};
+
 private:
     std::vector<Plan> plans {};
     std::vector<Disk> disks {};
     std::vector<Cone> cones {};
     std::vector<Elbow> elbows {};
-    int N;
+    int N{0};
 };
-
-#endif // CONTAINERREPOSITORY_H

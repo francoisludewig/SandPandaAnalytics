@@ -16,6 +16,8 @@ set(SOURCES_FILES
 
         Sources/Configuration/Option.cpp
 
+        Sources/PackingFraction/PackingFractionProfileCalculator.cpp
+
         Sources/main.cpp
 )
 
@@ -32,6 +34,8 @@ set(INCLUDES_FILES
         Includes/Repository/sphererepository.h
 
         Includes/Configuration/Option.h
+
+        Includes/PackingFraction/PackingFractionProfileCalculator.h
 )
 
 set(SandPandaAnalytics_FILES

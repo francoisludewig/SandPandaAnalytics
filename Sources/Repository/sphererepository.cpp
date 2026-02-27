@@ -7,11 +7,9 @@
 #include <string>
 #include <cstdio>
 
-SphereRepository::SphereRepository() {
+SphereRepository::SphereRepository() = default;
 
-}
-
-void SphereRepository::load(std::string directory)
+void SphereRepository::load(const std::string& directory)
 {
     namespace fs = std::filesystem;
 
@@ -52,4 +50,12 @@ void SphereRepository::load(std::string directory)
     }
 
     std::cout << N << " files found and loaded.\n";
+}
+
+double SphereRepository::minimal_radius() const {
+    double minimal_radius = spheres[0].getRadius();
+    for (const auto& sphere : spheres) {
+        if (minimal_radius > sphere.getRadius()) { minimal_radius = sphere.getRadius(); }
+    }
+    return minimal_radius;
 }

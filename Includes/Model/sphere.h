@@ -12,6 +12,8 @@ public:
     Sphere();
     void ReadFromFile(FILE *ft);
     bool readFromStream(std::istream& in);
+    [[nodiscard]] double getRadius() const {return r[0];}
+    [[nodiscard]] double get_z_at(int i) const {return z[i];}
 
 private:
     std::vector<double> x{},y{},z{};
