@@ -14,9 +14,9 @@ class PackingFractionProfileCalculator {
     double sectionSurface{};
     std::vector<std::vector<double>> profiles;
     std::vector<double> packingFractions;
-    double scale;
+    double scale{};
 public:
-    explicit PackingFractionProfileCalculator(ContainerRepository& ctr);
+    explicit PackingFractionProfileCalculator(const ContainerRepository& ctr);
     void computePackingFractionProfile(SphereRepository& sphr);
     void computePackingFraction();
     void exportProfiles(const std::string& directory);

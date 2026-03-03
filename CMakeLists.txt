@@ -18,6 +18,8 @@ set(SOURCES_FILES
 
         Sources/PackingFraction/PackingFractionProfileCalculator.cpp
 
+        Sources/Energy/EnergyCalculator.cpp
+
         Sources/main.cpp
 )
 
@@ -31,11 +33,13 @@ set(INCLUDES_FILES
         Includes/Model/velocity.h
         
         Includes/Repository/containerrepository.h
+
         Includes/Repository/sphererepository.h
 
         Includes/Configuration/Option.h
 
         Includes/PackingFraction/PackingFractionProfileCalculator.h
+        Includes/Energy/EnergyCalculator.h
 )
 
 set(SandPandaAnalytics_FILES

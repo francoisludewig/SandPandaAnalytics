@@ -16,7 +16,7 @@
 #include "../../Includes/Repository/sphererepository.h"
 
 namespace {
-    bool isFinite(double x) { return std::isfinite(x); }
+    bool isFinite(const double x) { return std::isfinite(x); }
 
     // Médiane d'un vecteur (copie) ; O(n) via nth_element
     double medianOf(std::vector<double> v)
@@ -38,9 +38,9 @@ namespace {
     }
 }
 
-PackingFractionProfileCalculator::PackingFractionProfileCalculator(ContainerRepository& ctr) {
+PackingFractionProfileCalculator::PackingFractionProfileCalculator(const ContainerRepository& ctr) {
     if (ctr.hasCones() > 0) {
-        auto cone = ctr.getCone();
+        const auto cone = ctr.getCone();
         z_min = cone.getMin();
         z_max = cone.getMax();
         sectionSurface = cone.getSection();
@@ -54,7 +54,7 @@ PackingFractionProfileCalculator::PackingFractionProfileCalculator(ContainerRepo
 
 void PackingFractionProfileCalculator::computePackingFractionProfile(SphereRepository& sphr) {
     scale = sphr.minimal_radius()/10;
-    int step_count = (int) ((z_max - z_min)/scale) + 1;
+    const int step_count = (int) ((z_max - z_min)/scale) + 1;
     double current_z;
 
     int n = sphr.getN();
