@@ -14,6 +14,8 @@ public:
     bool readFromStream(std::istream& in);
     [[nodiscard]] double getRadius() const {return r[0];}
     [[nodiscard]] double get_z_at(int i) const {return z[i];}
+    [[nodiscard]] double get_x_at(int i) const {return x[i];}
+    [[nodiscard]] double get_y_at(int i) const {return y[i];}
     [[nodiscard]] double get_translational_squared_speed_at(int i) const {return  vx[i]*vx[i]+vy[i]*vy[i]+vz[i]*vz[i];}
     [[nodiscard]] double get_rotational_squared_speed_at(int i) const {return  wx[i]*wx[i]+wy[i]*wy[i]+wz[i]*wz[i];}
 

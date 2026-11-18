@@ -47,3 +47,12 @@ bool Plan::readFromStream(std::istream& in) {
 
     return true;
 }
+
+
+std::tuple<double, double, double> Plan::getMin() const {
+    return std::make_tuple(x[0]-tx[0]*dt/2-sx[0]*ds/2, y[0]-ty[0]*dt/2-sy[0]*ds/2 ,z[0]-tz[0]*dt/2-sz[0]*ds/2);
+}
+
+std::tuple<double, double, double> Plan::getMax() const {
+    return std::make_tuple(x[0]+tx[0]*dt/2+sx[0]*ds/2, y[0]+ty[0]*dt/2+sy[0]*ds/2 ,z[0]+tz[0]*dt/2+sz[0]*ds/2);
+}

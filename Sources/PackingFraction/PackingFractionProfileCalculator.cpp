@@ -45,10 +45,8 @@ PackingFractionProfileCalculator::PackingFractionProfileCalculator(const Contain
         z_max = cone.getMax();
         sectionSurface = cone.getSection();
     } else {
-        //TODO Analyse Box case
-        z_min = 0;
-        z_max = 0;
-        sectionSurface = 0;
+        std::tie(z_min, z_max, sectionSurface) = ctr.getBoxData();
+        printf("BoxCase : (%e, %e, %e)\n", z_min, z_max, sectionSurface);
     }
 }
 
@@ -89,13 +87,17 @@ void PackingFractionProfileCalculator::computePackingFraction() {
     const double clampMin = 0.0;          // packing fraction physiquement >= 0
     const double clampMax = 1.0;          // et <= 1 (souvent)
 
-    for (const auto& profile : profiles)
+    for (auto& profile : profiles)
     {
         if (profile.empty()) {
             packingFractions.push_back(std::numeric_limits<double>::quiet_NaN());
             continue;
         }
 
+        // trimAtZero
+        const auto it = std::find(profile.begin(), profile.end(), 0.0);
+        profile.resize(std::distance(profile.begin(), it));
+        
         // 1) on coupe les bords en z
         const std::size_t n = profile.size();
         std::size_t i0 = static_cast<std::size_t>(std::floor(ignoreBottomFrac * n));

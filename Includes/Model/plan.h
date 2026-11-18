@@ -10,6 +10,10 @@ public:
     Plan();
     void ReadFromFile(FILE *ft) override;
     bool readFromStream(std::istream& in) override;
+    [[nodiscard]] std::tuple<double, double, double> getMin() const;
+    [[nodiscard]] std::tuple<double, double, double> getMax() const;
+
+
 private:
     double dt,ds;
     int ped;

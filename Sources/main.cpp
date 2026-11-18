@@ -1,6 +1,7 @@
 #include "../Includes/Configuration/Option.h"
 #include "../Includes/Energy/EnergyCalculator.h"
 #include "../Includes/PackingFraction/PackingFractionProfileCalculator.h"
+#include "../Includes/Convection/ConvectionCalculator.h"
 #include "../Includes/Repository/containerrepository.h"
 #include "../Includes/Repository/sphererepository.h"
 
@@ -25,6 +26,10 @@ int main(int argc,char **argv){
 	EnergyCalculator energy_calculator(ctr);
 	energy_calculator.computeEnergy(sphr);
 	energy_calculator.exportEnergy(opt.directory);
+
+	ConvectionCalculator convection_calculator(ctr);
+	convection_calculator.computeConvectionData(sphr);
+	convection_calculator.exportConvectionData(opt.directory);
 
 	/*
 	 * TODO

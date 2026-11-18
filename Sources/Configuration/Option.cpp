@@ -15,14 +15,14 @@ int Option::Management(char **argv, int argc) noexcept {
 			switch(argv[i][1]){
 				case 'h':
 					if(!strcmp(argv[i], "-help")){
-						printf("SanPanda Version 5.0 c++\nOptions are :\n");
+						printf("SandPandaAnalytics\nOptions are :\n");
 						printf("\t-p or -parallel for parallel contact detection with OpenMP\n");
 						printf("\t-s or -sequential for sequential contact detection (default option)\n");
 						printf("\t-d or -directory to indicate the current directory of the simulation (default option is the current directory)\n");
 						return 0;
 					}
 					if(!strcmp(argv[i], "-h")){
-						printf("SanPanda Version 5.0 c++\nOptions are :\n");
+						printf("SandPandaAnalytics\nOptions are :\n");
 						printf("\t-p or -parallel for parallel contact detection with OpenMP\n");
 						printf("\t-s or -sequential for sequential contact detection (default option)\n");
 						printf("\t-d or -directory to indicate the current directory of the simulation (default option is the current directory)\n");

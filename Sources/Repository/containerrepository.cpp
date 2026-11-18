@@ -79,3 +79,20 @@ void ContainerRepository::load(std::string directory)
 
     std::cout << N << " files found and loaded.\n";
 }
+
+std::tuple<double, double, double> ContainerRepository::getBoxData() const {
+    double minxBox = 1000, minyBox = 1000, minzBox = 1000;
+    double maxxBox = -1000, maxyBox = -1000, maxzBox = -1000;
+    for (const auto& plan : plans) {
+        auto [minx, miny, minz] = plan.getMin();
+        auto [maxx, maxy, maxz] = plan.getMax();
+        if (minx < minxBox) minxBox = minx;
+        if (miny < minyBox) minyBox = miny;
+        if (minz < minzBox) minzBox = minz;
+        if (maxx > maxxBox) maxxBox = maxx;
+        if (maxy > maxyBox) maxyBox = maxy;
+        if (maxz > maxzBox) maxzBox = maxz;
+    }
+
+    return {minzBox, maxzBox, (maxxBox-minxBox)*(maxyBox-minyBox)};
+}

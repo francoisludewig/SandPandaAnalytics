@@ -21,6 +21,7 @@ set(SOURCES_FILES
         Sources/Energy/EnergyCalculator.cpp
 
         Sources/main.cpp
+        Sources/Convection/ConvectionCalculator.cpp
 )
 
 set(INCLUDES_FILES
@@ -40,6 +41,7 @@ set(INCLUDES_FILES
 
         Includes/PackingFraction/PackingFractionProfileCalculator.h
         Includes/Energy/EnergyCalculator.h
+        Includes/Convection/ConvectionCalculator.h
 )
 
 set(SandPandaAnalytics_FILES
@@ -75,6 +77,10 @@ if (OPENMP_FOUND AND CMAKE_BUILD_TYPE STREQUAL "OpenMP")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 endif ()
+
+install(TARGETS SandPandaAnalytics
+        CONFIGURATIONS Release
+        RUNTIME DESTINATION ~/.local/bin)
 
 
 enable_testing()

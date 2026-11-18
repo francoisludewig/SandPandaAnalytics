@@ -15,6 +15,7 @@ public:
     void load(std::string directory);
     [[nodiscard]] bool hasCones() const { return !cones.empty();}
     [[nodiscard]] Cone getCone() const {return cones[0];};
+    std::tuple<double, double, double> getBoxData() const;
 
 private:
     std::vector<Plan> plans {};
